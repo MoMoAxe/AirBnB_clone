@@ -1,5 +1,5 @@
 import uuid
-import datetime
+from datetime import datetime
 
 """BaseModel"""
 
@@ -11,7 +11,7 @@ class BaseModel:
         for other classes.
     """
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """
         Args:
             id: string - assign with an uuid when an instance is created
@@ -21,16 +21,25 @@ class BaseModel:
             an instance is created
             and it will be updated every time you change your object
         """
-        self.id = str(uuid.uuid1())
-        self.created_at = datetime.datetime.now()
-        self.updated_at = datetime.datetime.now()
+        if kwargs:
+            for key, value in kwargs.items():
+                if key in ['created_at', 'updated_at']:
+                    self.__dict__[key] = datetime.strptime\
+                        (value, '%Y-%m-%dT%H:%M:%S.%f')
+                elif key == 'id':
+                    self.id = value
+
+        else:
+            self.id = str(uuid.uuid1())
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
 
     def save(self):
         """
                 updates the public instance attribute updated_at with the
                 current datetime
         """
-        self.updated_at = datetime.datetime.now()
+        self.updated_at = datetime.now()
         return self.updated_at
 
     def __str__(self):
