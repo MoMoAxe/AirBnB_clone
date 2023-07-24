@@ -16,8 +16,8 @@
     float: left;
     width: 25%;
     height: 100%;
+    position: relative;
     padding-bottom: 17.5px;
-
 }
 
 .filters .locations {
@@ -25,9 +25,9 @@
 }
 
 .filters .locations h3, .filters .amenities h3 {
-    padding: 17.5px 40px 0 40px;
     font-weight: 600;
     margin: 0;
+    padding: 17.5px 40px 0 40px;
     
 }
 .filters .locations h4, .filters .amenities h4 {
@@ -39,4 +39,29 @@
 
 .filters button:hover {
     opacity: 90%;
+}
+
+.popover {
+    display: none;
+    background: #FAFAFA;
+    padding: 0;
+    position: absolute;
+    list-style-type: none;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    margin-top: 18px;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.popover li {
+    padding-left: 40px
+}
+.popover h2 {
+    padding-left: 20px;
+    margin: 20px 0 0 0;
+}
+
+.locations:hover .popover, .amenities:hover .popover {
+    display: block;
 }
