@@ -1,0 +1,16 @@
+.filters button {
+    font-size: 18px;
+    background-color: #FF5A5F;
+    color: #FFFFFF;
+    height: 48px;
+    width: 20%;
+    border: none;
+    margin-right: 30px;
+    border-radius: 4px;
+    transform: translate(0, 23%);
+    float: right;
+}
+
+.filters button:hover {
+    opacity: 90%;
+}
